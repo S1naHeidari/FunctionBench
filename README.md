@@ -1,4 +1,4 @@
-# Source Code for FunctionBench applications and micro-benchmarks developed for running a microservices on Kubernetes
+# Source Code for FunctionBench applications and micro-benchmarks developed for running microservices on Kubernetes
 
 All of the 10 tests have been adapted from the [kmu-bigdata/serverless-faas-workbench](https://github.com/ddps-lab/serverless-faas-workbench) repository.
 
