@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pyaes
+  namespace: openfaas-fn
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pyaes
+  template:
+    metadata:
+      labels:
+        app: pyaes
+    spec:
+      containers:
+      - name: pyaes
+        image: 192.168.56.10:5000/pyaes-image
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: "400m"
+            memory: "256Mi"
+      schedulerName: rl-scheduler
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: pyaes-external
+  namespace: openfaas-fn
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: pyaes

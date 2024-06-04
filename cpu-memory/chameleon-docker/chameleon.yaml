@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chameleon
+  namespace: openfaas-fn
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chameleon
+  template:
+    metadata:
+      labels:
+        app: chameleon
+    spec:
+      containers:
+      - name: chameleon
+        image: 192.168.56.10:5000/chameleon
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: "400m"
+            memory: "500Mi"
+      schedulerName: rl-scheduler
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: chameleon-external
+  namespace: openfaas-fn
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: chameleon

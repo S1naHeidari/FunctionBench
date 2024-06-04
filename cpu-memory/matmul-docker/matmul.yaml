@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: matmul
+  namespace: openfaas-fn
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: matmul
+  template:
+    metadata:
+      labels:
+        app: matmul
+    spec:
+      containers:
+      - name: matmul
+        image: 192.168.56.10:5000/matmul
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: "400m"
+            memory: "256Mi"
+      schedulerName: rl-scheduler
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: matmul-external
+  namespace: openfaas-fn
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: matmul
+

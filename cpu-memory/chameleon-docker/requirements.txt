@@ -1,0 +1,4 @@
+flask
+six
+chameleon
+gunicorn

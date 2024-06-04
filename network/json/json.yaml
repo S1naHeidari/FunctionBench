@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: json
+  namespace: openfaas-fn
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: json
+  template:
+    metadata:
+      labels:
+        app: json
+    spec:
+      containers:
+      - name: json
+        image: 192.168.56.10:5000/json-image
+        ports:
+        - containerPort: 8080
+        resources:
+          requests:
+            cpu: "400m"
+            memory: "256Mi"
+      schedulerName: rl-scheduler
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: json-dumps-loads-external
+  namespace: openfaas-fn
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: json
+
