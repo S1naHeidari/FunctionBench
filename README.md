@@ -32,7 +32,7 @@ curl -X POST -H "Content-Type: application/json" -d '{"input_bucket": "picturesi
 Tested
 
 ### Pull images on nodes
-Not done.
+Done.
 
 
 
@@ -61,7 +61,7 @@ Scale in/out tested
 curl -X POST -H "Content-Type: application/json" -d '{"number": 10, "uuid": "1234"}' 192.168.56.10:32568/linpack
 
 ### Pull images on nodes
-Note done.
+Done.
 
 
 ## 3. Chameleon
@@ -89,7 +89,7 @@ Scale in/out tested
 curl -X POST -H "Content-Type: application/json" -d '{"num_of_rows": 10, "num_of_cols": 10, "uuid": "1234"}' 192.168.56.10:32568/generate_table
 
 ### Pull images on nodes
-Note done.
+Done.
 
 
 ## 4. matmul
@@ -115,7 +115,7 @@ Scale in/out tested
 curl -X POST -H "Content-Type: application/json" -d '{"number": 500, "uuid": "1234"}' 192.168.56.10:1234/matmul
 
 ### Pull images on nodes
-Not done yet.
+Done.
 
 ## 5. Float-operations
 
@@ -140,7 +140,7 @@ not set
 curl -X POST -H "Content-Type: application/json" -d '{"number": 500, "uuid": "1234"}' 192.168.56.10:31976/float-operations
 
 ### Pull images on nodes
-Not done yet.
+Done.
 
 
 ## 6. Pyaes
@@ -166,7 +166,7 @@ scale in/out tested
 curl -X POST -H "Content-Type: application/json" -d '{"length_of_message": 100, "num_of_iterations": 10, "uuid": "1234"}' 192.168.56.10:/pyaes-image
 
 ### Pull images on nodes
-Not done yet.
+Done.
 
 # Disk
 
@@ -193,7 +193,7 @@ scale in/out tested
 curl -X POST -H "Content-Type: application/json" -d '{"bs": 1024, "count": 5, "uuid": "1234"}' 192.168.56.10:31966/io-operation
 
 ### Pull images on nodes
-Not done yet.
+Done.
 
 ## 8. gzip compression
 
@@ -218,7 +218,7 @@ scale in/out tested
 curl -X POST -H "Content-Type: application/json" -d '{"file_size": 1, "uuid": "1234"}' 192.168.56.10:31954/compress-file
 
 ### Pull images on nodes
-Not done yet.
+Done.
 
 # Network
 
@@ -245,7 +245,7 @@ scale in/out tested
 curl -X POST -H "Content-Type: application/json" -d '{"link": "http://api.worldbank.org/v2/countries/USA/indicators/NY.GDP.MKTP.CD?per_page=5000&format=json", "uuid": "1234"}' 192.168.56.10:30888/json-dumps-loads
 
 ### Pull images on nodes
-Not done yet.
+Done.
 
 
 ## 10. S3 download speed
@@ -272,6 +272,6 @@ curl -X POST -H "Content-Type: application/json" -d '{"input_bucket": "vidsbucke
 
 
 ### Pull images on nodes
-Not done yet.
+Done.
 
 

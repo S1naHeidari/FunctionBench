@@ -21,7 +21,7 @@ spec:
         resources:
           requests:
             cpu: "400m"
-            memory: "500Mi"
+            memory: "200Mi"
       schedulerName: rl-scheduler
 
 ---
